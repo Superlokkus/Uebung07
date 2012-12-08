@@ -30,10 +30,25 @@ def LokaleExtrema(polynom):
             print "Lokales Minimum: " + str(root) + ";" + str(poly(root))
         else:
             break
+            
+def Tangente(polynom,forx,x):
+    """Gibt die y-Werte der Tangente für x, welche den gegebenen Polynom an der Stelle
+    forx schneidet, zurück."""
+    poly1 = np.polyder(polynom,1)
+    m = poly1(forx)
+    y = polynom(forx)
+    n = -m*forx + y
+    return x*m + n
     
+   
 LokaleExtrema(poly)
 
 plt.plot(np.linspace(-20,20),poly(np.linspace(-20,20)))
+
+assert (Tangente(poly,42,42) == poly(42))
+plt.plot(np.linspace(-20,20),Tangente(poly,1,np.linspace(-20,20)))
+
+
 plt.show()
 
 
