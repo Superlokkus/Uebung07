@@ -14,8 +14,8 @@ import matplotlib.pyplot as plt
 ###
 poly = np.poly1d(np.polyfit(np.array([x1,x2,x3]),np.array([y1,y2,y3]),2))
 
-print "Berechnungen mit Polynom: " + str(poly)
-print "Nullstellen: " + str(poly.r)
+print "Berechnungen mit Polynom: " + str(poly) #1.
+print "Nullstellen: " + str(poly.r) #2.
 
 def LokaleExtrema(polynom):
     """Gibt die Koordinaten der lokalen Extrema des übergebenen Polynoms aus"""
@@ -41,12 +41,12 @@ def Tangente(polynom,forx,x):
     return x*m + n
     
    
-LokaleExtrema(poly)
+LokaleExtrema(poly) #3.
 
-plt.plot(np.linspace(-20,20),poly(np.linspace(-20,20)))
+plt.plot(np.linspace(-20,20),poly(np.linspace(-20,20)))#1
 
 assert (Tangente(poly,42,42) == poly(42))
-plt.plot(np.linspace(-20,20),Tangente(poly,1,np.linspace(-20,20)))
+plt.plot(np.linspace(-20,20),Tangente(poly,1,np.linspace(-20,20)))#Zusatz
 
 
 plt.show()
