@@ -2,6 +2,8 @@
 # encoding=utf-8
 
 import numpy as np
+import matplotlib
+matplotlib.use("gtkagg")
 import matplotlib.pyplot as plt
 
 """Übung 07 Algebra mit numpy"""
@@ -29,8 +31,9 @@ def LokaleExtrema(polynom):
         elif (poly2(root) >0):
             print "Lokales Minimum: " + str(root) + ";" + str(poly(root))
         else:
+            #! hmm …
             break
-            
+
 def Tangente(polynom,forx,x):
     """Gibt die y-Werte der Tangente für x, welche den gegebenen Polynom an der Stelle
     forx schneidet, zurück."""
@@ -39,8 +42,8 @@ def Tangente(polynom,forx,x):
     y = polynom(forx)
     n = -m*forx + y
     return x*m + n
-    
-   
+
+
 LokaleExtrema(poly) #3.
 
 plt.plot(np.linspace(-20,20),poly(np.linspace(-20,20)))#1
@@ -51,7 +54,4 @@ plt.plot(np.linspace(-20,20),Tangente(poly,1,np.linspace(-20,20)))#Zusatz
 
 plt.show()
 
-
-
-
-
+#! Schön! Ordentlich formatiert, dokumentiert, perfekte Abgabe (+1.0)
